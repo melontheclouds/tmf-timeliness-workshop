@@ -1,0 +1,15 @@
+{
+  "name": "kahoot-party-office",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-device quiz party game with host and player screens.",
+  "main": "kahoot-party-server.js",
+  "scripts": {
+    "start": "node kahoot-party-server.js",
+    "dev": "node kahoot-party-server.js",
+    "check": "node --check kahoot-party-server.js && node --check kahoot-party/host.js && node --check kahoot-party/player.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

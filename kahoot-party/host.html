@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMF Timeliness Workshop Host</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="host-head">
+      <article class="panel hero-card">
+        <div class="eyebrow">Workshop host</div>
+        <h1 class="hero-title">TMF Timeliness <span>Workshop</span>.</h1>
+        <p class="hero-copy">
+          Keep this screen on the laptop or TV. The PIN stays huge, the workshop questions stay bright,
+          and you control the whole round from one place.
+        </p>
+        <div class="hero-metrics">
+          <div class="metric-pill" id="heroPlayers">0 players joined</div>
+          <div class="metric-pill" id="heroConnected">0 online right now</div>
+          <div class="metric-pill" id="heroSubmissions">0 answers locked</div>
+        </div>
+      </article>
+
+      <aside class="pin-stack">
+        <section class="panel pin-card">
+          <div class="pin-label">Game PIN</div>
+          <div class="pin-value" id="pinValue">------</div>
+          <p class="small-text">
+            Players open the join link below, type this PIN if needed, then pick a nickname.
+          </p>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="small-text">Share the public join link below, or use a local network link if everyone is on the same Wi-Fi.</div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="small-text">Players open the join link below and type a name.</div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="small-text">Once at least 2 players join, start the game from this host screen.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel join-card">
+          <div class="pin-label">Phone join links</div>
+          <div class="link-list" id="joinLinks"></div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="host-layout">
+      <article class="panel host-stage">
+        <div class="status-row">
+          <div class="status-pill" id="roundPill">Lobby</div>
+          <div class="timer-bar">
+            <div class="timer-fill" id="timerFill"></div>
+            <div class="timer-text" id="timerText">Waiting</div>
+          </div>
+          <div class="status-pill" id="categoryPill">No round yet</div>
+          <div class="status-pill" id="pointsPill">0 pts</div>
+        </div>
+
+        <section class="question-panel">
+          <div class="question-kicker">Main stage</div>
+          <h2 class="question-title" id="questionTitle">Players can join now. Start when the lobby looks good.</h2>
+          <div class="fact-panel" id="factPanel"></div>
+          <div class="answer-grid" id="answerGrid"></div>
+        </section>
+      </article>
+
+      <aside class="panel host-sidebar">
+        <section class="sidebar-section">
+          <h3>Leaderboard</h3>
+          <p class="hint-text">Scores are automatic. Faster correct answers earn more points.</p>
+          <div class="leaderboard" id="leaderboard"></div>
+        </section>
+
+        <section class="sidebar-section">
+          <h3>Lobby roster</h3>
+          <p class="hint-text">This also helps you see who is still online on their phone.</p>
+          <div class="leaderboard" id="roster"></div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="panel host-actions">
+      <div class="action-cluster">
+        <button class="primary-button" id="startButton" type="button">Start game</button>
+        <button class="ghost-button" id="revealButton" type="button">Reveal answer</button>
+        <button class="ghost-button" id="nextButton" type="button">Next question</button>
+        <button class="danger-button" id="restartButton" type="button">Back to lobby</button>
+        <button class="danger-button" id="newLobbyButton" type="button">Fresh lobby</button>
+      </div>
+      <div class="submissions-strip">
+        <div class="status-pill" id="phasePill">Waiting for players</div>
+      </div>
+    </section>
+
+    <section class="finish-card panel" id="finishCard" aria-hidden="true">
+      <div class="finish-atmosphere" aria-hidden="true">
+        <span class="finish-beam beam-a"></span>
+        <span class="finish-beam beam-b"></span>
+        <span class="finish-beam beam-c"></span>
+        <span class="finish-beam beam-d"></span>
+        <span class="finish-confetti confetti-a"></span>
+        <span class="finish-confetti confetti-b"></span>
+        <span class="finish-confetti confetti-c"></span>
+        <span class="finish-confetti confetti-d"></span>
+        <span class="finish-confetti confetti-e"></span>
+        <span class="finish-confetti confetti-f"></span>
+        <span class="finish-confetti confetti-g"></span>
+        <span class="finish-confetti confetti-h"></span>
+      </div>
+      <div class="finish-topline">
+        <div>
+          <div class="eyebrow">Awards night</div>
+          <h2 class="finish-title">And the <span>winners</span> are.</h2>
+          <p class="hero-copy" id="finishCopy"></p>
+        </div>
+        <div class="finish-cta">
+          <div class="award-seal">
+            <div class="award-seal-label">Living Room Academy</div>
+            <div class="award-seal-year">2026</div>
+          </div>
+          <div class="finish-actions">
+            <button class="ghost-button finish-restart" id="finishRestartButton" type="button">Same players</button>
+            <button class="danger-button finish-restart" id="finishNewLobbyButton" type="button">Fresh lobby</button>
+          </div>
+        </div>
+      </div>
+      <div class="podium" id="podium"></div>
+    </section>
+  </main>
+
+  <script src="/host.js" defer></script>
+</body>
+</html>

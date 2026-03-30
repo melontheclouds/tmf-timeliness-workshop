@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMF Timeliness Workshop Join</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="player-shell">
+    <section class="panel player-card">
+      <div class="player-top">
+        <div>
+          <div class="eyebrow">Workshop player</div>
+          <h1 class="player-title">Join the <span>workshop</span>.</h1>
+        </div>
+        <button class="leave-button" id="leaveButton" type="button" hidden>Leave game</button>
+      </div>
+
+      <p class="player-copy" id="playerIntro">
+        Enter the PIN and your nickname. After that, this phone becomes your workshop answer pad.
+      </p>
+
+      <section id="joinScreen">
+        <form class="join-form" id="joinForm">
+          <input class="join-input" id="pinInput" name="pin" inputmode="numeric" maxlength="6" placeholder="Game PIN">
+          <input class="join-input" id="nameInput" name="name" maxlength="18" placeholder="Nickname">
+          <button class="join-button" type="submit">Join workshop</button>
+        </form>
+        <div class="join-helper">Same PIN, one nickname, then this screen turns into your answer pad.</div>
+        <div class="error-text" id="errorText"></div>
+      </section>
+
+      <section class="player-stage" id="playerScreen" hidden>
+        <div class="question-mini">
+          <h3 id="miniHeading">Lobby</h3>
+          <p id="miniTitle">Waiting for the host to start</p>
+        </div>
+
+        <div class="player-top player-scoreboard">
+          <div class="status-pill" id="youBadge">You</div>
+          <div class="status-pill" id="scoreBadge">0 pts</div>
+          <div class="status-pill" id="rankBadge">#-</div>
+        </div>
+
+        <div class="timer-bar">
+          <div class="timer-fill" id="playerTimerFill"></div>
+          <div class="timer-text" id="playerTimerText">Waiting</div>
+        </div>
+
+        <div class="state-card" id="stateCard">
+          <h3 id="stateTitle">Lobby</h3>
+          <p id="stateCopy">The host has not started the quiz yet.</p>
+        </div>
+
+        <div class="answer-stage" id="answerStage"></div>
+
+        <div class="state-card" id="resultCard" hidden>
+          <div class="result-badge wrong" id="resultBadge">Round result</div>
+          <p id="resultCopy"></p>
+        </div>
+      </section>
+
+    </section>
+
+    <section class="player-awards" id="playerAwards" aria-hidden="true">
+      <div class="finish-atmosphere" aria-hidden="true">
+        <span class="finish-beam beam-a"></span>
+        <span class="finish-beam beam-b"></span>
+        <span class="finish-beam beam-c"></span>
+        <span class="finish-beam beam-d"></span>
+        <span class="finish-confetti confetti-a"></span>
+        <span class="finish-confetti confetti-b"></span>
+        <span class="finish-confetti confetti-c"></span>
+        <span class="finish-confetti confetti-d"></span>
+        <span class="finish-confetti confetti-e"></span>
+        <span class="finish-confetti confetti-f"></span>
+        <span class="finish-confetti confetti-g"></span>
+        <span class="finish-confetti confetti-h"></span>
+      </div>
+      <div class="player-awards-inner">
+        <div class="eyebrow">Awards scene</div>
+        <h2 class="finish-title">Your <span>finale</span>.</h2>
+        <p class="player-copy" id="playerAwardsCopy"></p>
+        <div class="status-pill player-awards-rank" id="playerAwardsRank">#-</div>
+        <div class="podium" id="playerAwardsPodium"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/player.js" defer></script>
+</body>
+</html>
