@@ -7,6 +7,7 @@ const { URL } = require("url");
 const DEFAULT_PORT = Number(process.env.PORT || 3210);
 const PUBLIC_DIR = path.join(__dirname, "kahoot-party");
 const ACTIVE_QUESTION_COUNT = 14;
+const DEFAULT_QUESTION_TIME_LIMIT = 120;
 const PUBLIC_BASE_URL = normalizeBaseUrl(
   process.env.PUBLIC_BASE_URL || process.env.RENDER_EXTERNAL_URL || ""
 );
@@ -22,7 +23,7 @@ const questionBank = [
   {
     category: "Timeliness basics",
     points: 1000,
-    timeLimit: 20,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "What does Timeliness measure?",
     options: [
       "The number of documents with e-signatures",
@@ -36,7 +37,7 @@ const questionBank = [
   {
     category: "Timeliness formula",
     points: 1000,
-    timeLimit: 24,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "How is Timeliness calculated?",
     options: [
       "Document Date - Creation (upload) Date",
@@ -50,7 +51,7 @@ const questionBank = [
   {
     category: "Timeliness formula",
     points: 950,
-    timeLimit: 18,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "Which date is always used as the 'Creation date' in the calculation?",
     options: [
       "The date the document is approved",
@@ -64,7 +65,7 @@ const questionBank = [
   {
     category: "Process timing",
     points: 1000,
-    timeLimit: 18,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "Timeliness counting starts when:",
     options: [
       "The document is first drafted in SharePoint",
@@ -78,7 +79,7 @@ const questionBank = [
   {
     category: "KPI target",
     points: 1000,
-    timeLimit: 18,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "What is the target for Timeliness performance?",
     options: [
       "95% of documents <= 15 days",
@@ -92,7 +93,7 @@ const questionBank = [
   {
     category: "Metadata",
     points: 1000,
-    timeLimit: 16,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "Where can you find the Document Date and Creation Date?",
     options: ["In the metadata", "In the document header", "Only in Power BI", "In the e-mail notification"],
     answer: 0,
@@ -101,7 +102,7 @@ const questionBank = [
   {
     category: "Exclusions",
     points: 1000,
-    timeLimit: 18,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "Which statuses are excluded from Timeliness counting?",
     options: [
       "Approved and Effective",
@@ -115,7 +116,7 @@ const questionBank = [
   {
     category: "Exceptions",
     points: 1050,
-    timeLimit: 20,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "What do 'Exceptions' in Timeliness refer to?",
     options: [
       "Documents created from templates",
@@ -129,7 +130,7 @@ const questionBank = [
   {
     category: "VCV behavior",
     points: 1000,
-    timeLimit: 18,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "In VCV, how are 'Exceptions' classifications treated by default?",
     options: [
       "They are automatically excluded from Timeliness",
@@ -143,7 +144,7 @@ const questionBank = [
   {
     category: "Reporting",
     points: 1000,
-    timeLimit: 20,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "Which pairing correctly describes real-time versus daily refresh behavior?",
     options: [
       "Power BI is real-time; VCV refreshes daily",
@@ -157,7 +158,7 @@ const questionBank = [
   {
     category: "Exceptions scenario",
     points: 1200,
-    timeLimit: 30,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "A team uploads 10 PI CVs late with Timeliness of 120 days. How should this affect the Timeliness KPI in VCV?",
     options: [
       "They count in the >60 days bucket and worsen the KPI",
@@ -171,7 +172,7 @@ const questionBank = [
   {
     category: "Document received date",
     points: 1100,
-    timeLimit: 24,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "When should Document Received Date be entered and used in Timeliness?",
     options: [
       "Always, for any internal AZ-authored document",
@@ -185,7 +186,7 @@ const questionBank = [
   {
     category: "Date algorithm",
     points: 1150,
-    timeLimit: 22,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "A committee letter shows meeting date 10-Mar, last signature date 15-Mar, and Effective date 20-Mar. Which is the Document Date?",
     options: ["10-Mar", "15-Mar", "The upload date", "20-Mar"],
     answer: 3,
@@ -194,7 +195,7 @@ const questionBank = [
   {
     category: "Signature date",
     points: 1150,
-    timeLimit: 22,
+    timeLimit: DEFAULT_QUESTION_TIME_LIMIT,
     prompt: "What should the Document Date be if the receipt date is 03 Jan 2026 and the last valid signature date on the document is 01 Jan 2026?",
     options: ["03 Jan 2026", "01 Jan 2026", "01 Jan 2025", "02 Jan 2026"],
     answer: 1,
