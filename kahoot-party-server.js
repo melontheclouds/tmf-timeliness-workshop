@@ -275,23 +275,12 @@ function addJoinLink(links, seen, label, address, baseUrl) {
   });
 }
 
-function shuffle(list) {
-  const copy = [...list];
-
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
-  }
-
-  return copy;
-}
-
 function generatePin() {
   return String(100000 + Math.floor(Math.random() * 900000));
 }
 
 function freshDeck() {
-  return shuffle(questionBank).slice(0, ACTIVE_QUESTION_COUNT).map((question) => ({
+  return questionBank.slice(0, ACTIVE_QUESTION_COUNT).map((question) => ({
     ...question,
     options: [...question.options]
   }));
